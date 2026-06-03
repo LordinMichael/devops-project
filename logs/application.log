@@ -1,0 +1,6 @@
+INFO Application Started
+INFO User Login
+ERROR Database Connection Failed
+INFO User Logout
+ERROR API Timeout
+INFO Service Running
