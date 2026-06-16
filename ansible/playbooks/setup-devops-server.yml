@@ -1,0 +1,37 @@
+---
+- name: Setup DevOps Server
+  hosts: local
+  become: yes
+
+  tasks:
+
+    - name: Ensure Git is installed
+      apt:
+        name: git
+        state: present
+
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Ensure Docker service is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Create logs directory
+      file:
+        path: /home/ubuntu/devops-project/logs
+        state: directory
+
+    - name: Create monitoring directory
+      file:
+        path: /home/ubuntu/devops-project/monitoring
+        state: directory
+
+    - name: Create backup directory
+      file:
+        path: /home/ubuntu/devops-project/backup
+        state: directory

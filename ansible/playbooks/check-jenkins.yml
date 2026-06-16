@@ -1,0 +1,14 @@
+---
+- name: Verify Jenkins Container
+  hosts: local
+
+  tasks:
+
+    - name: Check running containers
+      command: docker ps
+      register: docker_output
+
+    - name: Show running containers
+      debug:
+        var: docker_output.stdout_lines
+
